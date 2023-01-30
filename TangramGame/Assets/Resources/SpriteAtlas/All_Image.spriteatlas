@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: All_Images
+  m_Name: All_Image
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -31,13 +31,18 @@ SpriteAtlas:
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables: []
+    packables:
+    - {fileID: 102900000, guid: 42971748bd83fb144b25fd139d96c047, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 7cd54331456a62f48b9c28ee6f10311f, type: 2}
+  - {fileID: 21300000, guid: f9c86e6b0bcab4149bc5e7194fadf824, type: 2}
+  m_PackedSpriteNamesToIndex:
+  - Btn_Long_Green
+  - Btn_Long_Green_Press
   m_RenderDataMap: {}
-  m_Tag: All_Images
+  m_Tag: All_image
   m_IsVariant: 0
