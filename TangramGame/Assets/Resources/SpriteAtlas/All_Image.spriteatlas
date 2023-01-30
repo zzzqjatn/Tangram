@@ -26,23 +26,40 @@ SpriteAtlas:
       padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 1
-      enableTightPacking: 1
+      enableRotation: 0
+      enableTightPacking: 0
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 42971748bd83fb144b25fd139d96c047, type: 3}
+    - {fileID: 102900000, guid: 036bfcaea149d0b4ea2462e561157ec3, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 3e19b860dc6f7a54491e2ce6df042756, type: 3}
   - {fileID: 21300000, guid: 7cd54331456a62f48b9c28ee6f10311f, type: 2}
+  - {fileID: 21300000, guid: 5dd2a78297c20174e8a33e5785069457, type: 3}
+  - {fileID: 21300000, guid: 4da2d0a49bee5c54c80819dee4c825de, type: 3}
+  - {fileID: 21300000, guid: 033391a6c365905428595b56689da884, type: 3}
+  - {fileID: 21300000, guid: 0961cf7a21ff2054d9d26ba80a1187e1, type: 3}
   - {fileID: 21300000, guid: f9c86e6b0bcab4149bc5e7194fadf824, type: 2}
+  - {fileID: 21300000, guid: 89d0410c78ba1804cb63194d078ebde2, type: 3}
+  - {fileID: 21300000, guid: fdf5fcec17e77594c9381ab81575f7b9, type: 3}
+  - {fileID: 21300000, guid: 9ccb712f5d74f964e82da1071d995b68, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Puzzle_SmallTriangle1
   - Btn_Long_Green
+  - Puzzle_BigTriangle1
+  - Puzzle_MiddleTriangle
+  - Puzzle_SmallTriangle2
+  - Puzzle_BigTriangle2
   - Btn_Long_Green_Press
+  - Puzzle_Parallelogarm
+  - Puzzle_Square
+  - woodBorad
   m_RenderDataMap: {}
   m_Tag: All_Image
   m_IsVariant: 0
