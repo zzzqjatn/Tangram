@@ -44,5 +44,5 @@ SpriteAtlas:
   - Btn_Long_Green
   - Btn_Long_Green_Press
   m_RenderDataMap: {}
-  m_Tag: All_image
+  m_Tag: All_Image
   m_IsVariant: 0
