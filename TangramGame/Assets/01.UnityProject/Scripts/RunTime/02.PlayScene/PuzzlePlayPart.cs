@@ -4,13 +4,17 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PuzzlePlayPart : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
-    IPointerMoveHandler
+    IDragHandler
 {
     private bool isClicked = false;
+    private RectTransform objRect = default;
+    private PuzzleInitZone puzzleInitZone = default;
 
     void Start()
     {
         isClicked = false;
+        objRect = gameObject.GetRect();
+        puzzleInitZone = transform.parent.gameObject.GetComponentMust<PuzzleInitZone>();
     }
 
     void Update()
@@ -37,12 +41,14 @@ public class PuzzlePlayPart : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     }   //OnPointerUp()
 
     //! 마우스를 드래그 중 일때 동작하는 함수
-    public void OnPointerMove(PointerEventData eventData)
+    public void OnDrag(PointerEventData eventData)
     {
         if (isClicked == true)
         {
-            gameObject.SetLocalPos(eventData.position.x, eventData.position.y, 0f);
-            GFunc.Log($"마우스의 포지션을 확인 : ({eventData.position.x} , {eventData.position.y})");
+            //gameObject.SetLocalPos(eventData.position.x, eventData.position.y, 0f);
+            gameObject.AddAnchoredPos(eventData.delta / puzzleInitZone.parentCanvas.scaleFactor);
+
+            //GFunc.Log($"마우스의 포지션을 확인 : ({eventData.position.x} , {eventData.position.y})");
         }   // if: 현재 오브젝트를 선택한 경우
-    }   //OnPointerMove()
+    }   //OnDrag()
 }

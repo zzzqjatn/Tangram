@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public static partial class GFunc
 {
-    //! Æ¯Á¤ ¿ÀºêÁ§Æ®ÀÇ ÀÚ½Ä ¿ÀºêÁ§Æ®¸¦ ¼­Ä¡ÇØ¼­ Ã£¾ÆÁÖ´Â ÇÔ¼ö
+    //! íŠ¹ì • ì˜¤ë¸Œì íŠ¸ì˜ ìì‹ ì˜¤ë¸Œì íŠ¸ë¥¼ ì„œì¹˜í•´ì„œ ì°¾ì•„ì£¼ëŠ” ì¬ê·€í•¨ìˆ˜
     public static GameObject FindChildObj(
         this GameObject targetObj_, string objName_)
     {
         GameObject searchResult = default;
         GameObject searchTarget = default;
-        for (int i=0; i< targetObj_.transform.childCount; i++)
+        for (int i = 0; i < targetObj_.transform.childCount; i++)
         {
             searchTarget = targetObj_.transform.GetChild(i).gameObject;
             if (searchTarget.name.Equals(objName_))
@@ -26,24 +26,24 @@ public static partial class GFunc
             }
         }       // loop
 
-        // ¹æ¾î·ÎÁ÷
-        if(searchResult == null || searchResult == default) { /* Pass */ }
+        // ì˜ˆì™¸ì²˜ë¦¬
+        if (searchResult == null || searchResult == default) { /* Pass */ }
         else { return searchResult; }
 
         return searchResult;
     }       // FindChildObj()
 
 
-    //! ¾ÀÀÇ ·çÆ® ¿ÀºêÁ§Æ®¸¦ ¼­Ä¡ÇØ¼­ Ã£¾ÆÁÖ´Â ÇÔ¼ö
+    //! ì”¬ì˜ ë£¨íŠ¸ ì˜¤ë¸Œì íŠ¸ë¥¼ ì„œì¹˜í•´ì„œ ì°¾ì•„ì£¼ëŠ” í•¨ìˆ˜
     public static GameObject GetRootObj(string objName_)
     {
         Scene activeScene_ = GetActiveScene();
         GameObject[] rootObjs_ = activeScene_.GetRootGameObjects();
 
         GameObject targetObj_ = default;
-        foreach(GameObject rootObj in rootObjs_)
+        foreach (GameObject rootObj in rootObjs_)
         {
-            if(rootObj.name.Equals(objName_))
+            if (rootObj.name.Equals(objName_))
             {
                 targetObj_ = rootObj;
                 return targetObj_;
@@ -54,50 +54,62 @@ public static partial class GFunc
         return targetObj_;
     }       // GetRootObj()
 
-    //! RectTransform ¿¡¼­ sizeDelta¸¦ Ã£¾Æ¼­ ¸®ÅÏÇÏ´Â ÇÔ¼ö
+    //! RectTransform ì—ì„œ sizeDeltaë¥¼ ì°¾ì•„ì„œ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜
     public static Vector2 GetRectSizeDelta(this GameObject obj_)
     {
         return obj_.GetComponentMust<RectTransform>().sizeDelta;
     }       // GetRectSizeDelta()
 
-    //! ÇöÀç È°¼ºÈ­ µÇ¾î ÀÖ´Â ¾ÀÀ» Ã£¾ÆÁÖ´Â ÇÔ¼ö
+    //! í˜„ì¬ í™œì„±í™” ë˜ì–´ìˆëŠ” ì”¬ì„ ì°¾ì•„ì£¼ëŠ” í•¨ìˆ˜
     public static Scene GetActiveScene()
     {
         Scene activeScene_ = SceneManager.GetActiveScene();
         return activeScene_;
     }       // GetActiveScene()
 
-    //! ¿ÀºêÁ§Æ®ÀÇ ·ÎÄÃ Æ÷Áö¼ÇÀ» º¯°æÇÏ´Â ÇÔ¼ö
-    public static void SetLocalPos(this GameObject obj_, 
+    //! ì˜¤ë¸Œì íŠ¸ì˜ ë¡œì»¬ í¬ì§€ì…˜ì„ ë³€ê²½í•˜ëŠ” í•¨ìˆ˜
+    public static void SetLocalPos(this GameObject obj_,
         float x, float y, float z)
     {
         obj_.transform.localPosition = new Vector3(x, y, z);
     }       // SetLocalPos()
 
-    //! ¿ÀºêÁ§Æ®ÀÇ ·ÎÄÃ Æ÷Áö¼ÇÀ» ¿¬»êÇÏ´Â ÇÔ¼ö
-    public static void AddLocalPos(this GameObject obj_, 
+    //! ì˜¤ë¸Œì íŠ¸ì˜ ë¡œì»¬ í¬ì§€ì…˜ì„ ì—°ì‚°í•˜ëŠ” í•¨ìˆ˜
+    public static void AddLocalPos(this GameObject obj_,
         float x, float y, float z)
     {
-        obj_.transform.localPosition = 
+        obj_.transform.localPosition =
             obj_.transform.localPosition + new Vector3(x, y, z);
     }       // AddLocalPos()
 
-    //! Æ®·£½ºÆûÀ» »ç¿ëÇØ¼­ ¿ÀºêÁ§Æ®¸¦ ¿òÁ÷ÀÌ´Â ÇÔ¼ö
+    //! íŠ¸ëœìŠ¤í¼ì„ ì‚¬ìš©í•´ì„œ ì˜¤ë¸Œì íŠ¸ë¥¼ ì›€ì§ì´ëŠ” í•¨ìˆ˜
     public static void Translate(this Transform transform_, Vector2 moveVector)
     {
         transform_.Translate(moveVector.x, moveVector.y, 0f);
     }       // Translate()
 
-    //! ÄÄÆ÷³ÍÆ® °¡Á®¿À´Â ÇÔ¼ö
+    //! ì œë„¤ë¦­ì„ í™œìš©í•œ ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ëŠ” í•¨ìˆ˜
     public static T GetComponentMust<T>(this GameObject obj)
     {
         T component_ = obj.GetComponent<T>();
 
-        GFunc.Assert(component_.IsValid<T>() != false, 
-            string.Format("{0}¿¡¼­ {1}À»(¸¦) Ã£À» ¼ö ¾ø½À´Ï´Ù.",
+        GFunc.Assert(component_.IsValid<T>() != false,
+            string.Format("{0}ì—ì„œ {1}ì„(ë¥¼) ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.",
             obj.name, component_.GetType().Name));
 
         return component_;
     }       // GetComponentMust()
+
+    //! RectTransform ì„ ì°¾ì•„ì„œ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜
+    public static RectTransform GetRect(this GameObject obj_)
+    {
+        return obj_.GetComponentMust<RectTransform>();
+    }   //GetRect()
+
+    //! ì˜¤ë¸Œì íŠ¸ì˜ ì•µì»¤ í¬ì§€ì…˜ì„ ì—°ì‚°í•˜ëŠ” í•¨ìˆ˜
+    public static void AddAnchoredPos(this GameObject obj_, Vector2 position2D)
+    {
+        obj_.GetRect().anchoredPosition += position2D;
+    }   //AddAnchoredPos()
 
 }
